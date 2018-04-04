@@ -12,6 +12,10 @@
 		4A6570D720749D3000DD1E52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570D520749D3000DD1E52 /* Main.storyboard */; };
 		4A6570D920749D3000DD1E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570D820749D3000DD1E52 /* Assets.xcassets */; };
 		4A6570DC20749D3000DD1E52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570DA20749D3000DD1E52 /* LaunchScreen.storyboard */; };
+		4A6570EC20749EF800DD1E52 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570E920749EF700DD1E52 /* home.png */; };
+		4A6570ED20749EF800DD1E52 /* apps.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570EA20749EF800DD1E52 /* apps.png */; };
+		4A6570EE20749EF800DD1E52 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570EB20749EF800DD1E52 /* gallery.png */; };
+		4A6570F02074A14300DD1E52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		4A6570D820749D3000DD1E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A6570DB20749D3000DD1E52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A6570DD20749D3000DD1E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A6570E920749EF700DD1E52 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		4A6570EA20749EF800DD1E52 /* apps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apps.png; sourceTree = "<group>"; };
+		4A6570EB20749EF800DD1E52 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +62,12 @@
 		4A6570D020749D3000DD1E52 /* WhatIAm */ = {
 			isa = PBXGroup;
 			children = (
+				4A6570EA20749EF800DD1E52 /* apps.png */,
+				4A6570EB20749EF800DD1E52 /* gallery.png */,
+				4A6570E920749EF700DD1E52 /* home.png */,
 				4A6570D120749D3000DD1E52 /* AppDelegate.swift */,
 				4A6570D320749D3000DD1E52 /* ViewController.swift */,
+				4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */,
 				4A6570D520749D3000DD1E52 /* Main.storyboard */,
 				4A6570D820749D3000DD1E52 /* Assets.xcassets */,
 				4A6570DA20749D3000DD1E52 /* LaunchScreen.storyboard */,
@@ -96,7 +108,7 @@
 				TargetAttributes = {
 					4A6570CD20749D3000DD1E52 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -123,6 +135,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6570EE20749EF800DD1E52 /* gallery.png in Resources */,
+				4A6570EC20749EF800DD1E52 /* home.png in Resources */,
+				4A6570ED20749EF800DD1E52 /* apps.png in Resources */,
 				4A6570DC20749D3000DD1E52 /* LaunchScreen.storyboard in Resources */,
 				4A6570D920749D3000DD1E52 /* Assets.xcassets in Resources */,
 				4A6570D720749D3000DD1E52 /* Main.storyboard in Resources */,
@@ -136,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6570F02074A14300DD1E52 /* ProfileViewController.swift in Sources */,
 				4A6570D420749D3000DD1E52 /* ViewController.swift in Sources */,
 				4A6570D220749D3000DD1E52 /* AppDelegate.swift in Sources */,
 			);
@@ -274,12 +290,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AE8JUERU72;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WhatIAm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intimetec.WhatIAm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,12 +306,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AE8JUERU72;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WhatIAm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.intimetec.WhatIAm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,10 +13,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  var tabController: UITabBarController?
 
+  func createTabs() {
+    
+    var tabControllers: [UIViewController] = []
+    
+    for i in 0..<3 {
+    
+      var viewcontroller: UIViewController?
+      
+      
+      switch i {
+        case 0:
+        viewcontroller = ProfileViewController()
+        viewcontroller?.tabBarItem.title = "Profile"
+        viewcontroller?.tabBarItem.image = UIImage(named: "home")
+        
+        case 1:
+        viewcontroller = ViewController()
+        viewcontroller?.tabBarItem.title = "Feeds"
+        viewcontroller?.tabBarItem.image = UIImage(named: "gallery")
+        
+        case 2:
+        viewcontroller = ViewController()
+        viewcontroller?.tabBarItem.title = "Maps"
+        viewcontroller?.tabBarItem.image = UIImage(named: "apps")
+        
+        default:
+        viewcontroller = nil
+      }
+      
+      tabControllers.append(viewcontroller!)
+    }
+    
+    tabController = UITabBarController()
+    tabController?.viewControllers = tabControllers
+  }
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+
+    createTabs()
+    window?.rootViewController = tabController
+    
     return true
+    
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
