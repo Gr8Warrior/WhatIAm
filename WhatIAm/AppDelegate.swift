@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  var tabController: UITabBarController?
-
+  var baseViewController: UITabBarController?
+  
   func createTabs() {
     
     var tabControllers: [UIViewController] = []
@@ -22,40 +22,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     for i in 0..<3 {
     
       var viewcontroller: UIViewController?
-      
+      var navigationController: UINavigationController?
       
       switch i {
         case 0:
         viewcontroller = ViewController()
-        viewcontroller?.tabBarItem.title = "Profile"
-        viewcontroller?.tabBarItem.image = UIImage(named: "home")
+        
+        navigationController = UINavigationController(rootViewController: viewcontroller!)
+        navigationController?.tabBarItem.title = "Feed"
+        navigationController?.navigationBar.topItem?.title = "Feeds"
+        navigationController?.tabBarItem.image = UIImage(named: "apps")
+
         
         case 1:
         viewcontroller = ViewController()
-        viewcontroller?.tabBarItem.title = "Feeds"
-        viewcontroller?.tabBarItem.image = UIImage(named: "gallery")
+        navigationController = UINavigationController(rootViewController: viewcontroller!)
+        navigationController?.tabBarItem.title = "Profile"
+        navigationController?.navigationBar.topItem?.title = "Feeds"
+        navigationController?.tabBarItem.image = UIImage(named: "home")
+
         
         case 2:
         viewcontroller = MapsViewController()
-        viewcontroller?.tabBarItem.title = "Maps"
-        viewcontroller?.tabBarItem.image = UIImage(named: "apps")
+        navigationController = UINavigationController(rootViewController: viewcontroller!)
+        navigationController?.tabBarItem.title = "Maps"
+        navigationController?.navigationBar.topItem?.title = "Maps"
+        navigationController?.tabBarItem.image = UIImage(named: "apps")
         
         default:
         viewcontroller = nil
       }
       
-      tabControllers.append(viewcontroller!)
+      tabControllers.append(navigationController!)
     }
     
-    tabController = UITabBarController()
-    tabController?.viewControllers = tabControllers
+    baseViewController = UITabBarController()
+    baseViewController?.viewControllers = tabControllers
   }
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
 
     createTabs()
-    window?.rootViewController = tabController
+    window?.rootViewController = baseViewController
     
     return true
     
