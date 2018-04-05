@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       switch i {
         case 0:
-        viewcontroller = ProfileViewController()
+        viewcontroller = ViewController()
         viewcontroller?.tabBarItem.title = "Profile"
         viewcontroller?.tabBarItem.image = UIImage(named: "home")
         
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewcontroller?.tabBarItem.image = UIImage(named: "gallery")
         
         case 2:
-        viewcontroller = ViewController()
+        viewcontroller = MapsViewController()
         viewcontroller?.tabBarItem.title = "Maps"
         viewcontroller?.tabBarItem.image = UIImage(named: "apps")
         

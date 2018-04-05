@@ -15,7 +15,7 @@
 		4A6570EC20749EF800DD1E52 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570E920749EF700DD1E52 /* home.png */; };
 		4A6570ED20749EF800DD1E52 /* apps.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570EA20749EF800DD1E52 /* apps.png */; };
 		4A6570EE20749EF800DD1E52 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6570EB20749EF800DD1E52 /* gallery.png */; };
-		4A6570F02074A14300DD1E52 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */; };
+		4A6570F02074A14300DD1E52 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6570EF2074A14300DD1E52 /* MapsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		4A6570E920749EF700DD1E52 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		4A6570EA20749EF800DD1E52 /* apps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apps.png; sourceTree = "<group>"; };
 		4A6570EB20749EF800DD1E52 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
-		4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4A6570EF2074A14300DD1E52 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 				4A6570E920749EF700DD1E52 /* home.png */,
 				4A6570D120749D3000DD1E52 /* AppDelegate.swift */,
 				4A6570D320749D3000DD1E52 /* ViewController.swift */,
-				4A6570EF2074A14300DD1E52 /* ProfileViewController.swift */,
+				4A6570EF2074A14300DD1E52 /* MapsViewController.swift */,
 				4A6570D520749D3000DD1E52 /* Main.storyboard */,
 				4A6570D820749D3000DD1E52 /* Assets.xcassets */,
 				4A6570DA20749D3000DD1E52 /* LaunchScreen.storyboard */,
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A6570F02074A14300DD1E52 /* ProfileViewController.swift in Sources */,
+				4A6570F02074A14300DD1E52 /* MapsViewController.swift in Sources */,
 				4A6570D420749D3000DD1E52 /* ViewController.swift in Sources */,
 				4A6570D220749D3000DD1E52 /* AppDelegate.swift in Sources */,
 			);
