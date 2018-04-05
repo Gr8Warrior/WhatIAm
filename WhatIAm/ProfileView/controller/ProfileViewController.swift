@@ -10,17 +10,26 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+  var editMode: Bool?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.red
     edgesForExtendedLayout = UIRectEdge()
+    editMode = false
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action:  #selector(ProfileViewController.edit))
     }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+@objc func edit() {
+    print("Edited")
+  if !editMode! {
+    self.navigationItem.rightBarButtonItem?.title = "Save"
+  }else{
+    self.navigationItem.rightBarButtonItem?.title = "Edit"
   }
-
+  editMode = !editMode!
+  
+  }
 
 }
 
