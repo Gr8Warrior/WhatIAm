@@ -24,6 +24,8 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableOfFeeds = UITableView(frame: self.view.frame)
     tableOfFeeds?.delegate = self
     tableOfFeeds?.dataSource = self
+    tableOfFeeds?.rowHeight = 200
+    tableOfFeeds?.separatorStyle = UITableViewCellSeparatorStyle.singleLine
     self.view.addSubview(tableOfFeeds!)
   }
 
@@ -37,10 +39,11 @@ class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDat
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    var feedCell = tableView.dequeueReusableCell(withIdentifier: "feeds")
+    var feedCell: FeedsViewCell?
+    feedCell = tableView.dequeueReusableCell(withIdentifier: "feeds") as? FeedsViewCell
     
     if feedCell == nil {
-      feedCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "feeds")
+      feedCell = FeedsViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "feeds")
     }
     feedCell?.textLabel?.text = "shailu"
     

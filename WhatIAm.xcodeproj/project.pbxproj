@@ -19,6 +19,8 @@
 		4A6FCDF72076304A009A82C8 /* feed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FCDF62076304A009A82C8 /* feed.png */; };
 		4A6FCDFD207630AB009A82C8 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FCDFC207630AB009A82C8 /* GalleryViewController.swift */; };
 		4A6FCDFF2076311E009A82C8 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FCDFE2076311E009A82C8 /* gallery.png */; };
+		4A6FCE0120763633009A82C8 /* FeedsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FCE0020763633009A82C8 /* FeedsViewCell.swift */; };
+		4A6FCE03207637C6009A82C8 /* india.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FCE02207637C6009A82C8 /* india.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4A6FCDF62076304A009A82C8 /* feed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feed.png; sourceTree = "<group>"; };
 		4A6FCDFC207630AB009A82C8 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		4A6FCDFE2076311E009A82C8 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		4A6FCE0020763633009A82C8 /* FeedsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewCell.swift; sourceTree = "<group>"; };
+		4A6FCE02207637C6009A82C8 /* india.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = india.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		4A6FCDE520762B33009A82C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4A6FCE02207637C6009A82C8 /* india.png */,
 				4A6FCDFE2076311E009A82C8 /* gallery.png */,
 				4A6FCDE620762D83009A82C8 /* profile.png */,
 				4A6FCDF62076304A009A82C8 /* feed.png */,
@@ -121,6 +126,7 @@
 		4A6FCDEB20762EF5009A82C8 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4A6FCE0020763633009A82C8 /* FeedsViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				4A6570D720749D3000DD1E52 /* Main.storyboard in Resources */,
 				4A6FCDE720762D83009A82C8 /* profile.png in Resources */,
 				4A6FCDFF2076311E009A82C8 /* gallery.png in Resources */,
+				4A6FCE03207637C6009A82C8 /* india.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,7 @@
 			files = (
 				4A6570F02074A14300DD1E52 /* MapsViewController.swift in Sources */,
 				4A6570D420749D3000DD1E52 /* ProfileViewController.swift in Sources */,
+				4A6FCE0120763633009A82C8 /* FeedsViewCell.swift in Sources */,
 				4A6FCDFD207630AB009A82C8 /* GalleryViewController.swift in Sources */,
 				4A6FCDED20762F1F009A82C8 /* FeedsViewController.swift in Sources */,
 				4A6570D220749D3000DD1E52 /* AppDelegate.swift in Sources */,
