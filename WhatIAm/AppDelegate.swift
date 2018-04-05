@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewcontroller = ViewController()
         navigationController = UINavigationController(rootViewController: viewcontroller!)
         navigationController?.tabBarItem.title = "Profile"
-        navigationController?.navigationBar.topItem?.title = "Feeds"
-        navigationController?.tabBarItem.image = UIImage(named: "home")
+        navigationController?.navigationBar.topItem?.title = "profile"
+        navigationController?.tabBarItem.image = UIImage(named: "profile")
 
         
         case 2:
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController = UINavigationController(rootViewController: viewcontroller!)
         navigationController?.tabBarItem.title = "Maps"
         navigationController?.navigationBar.topItem?.title = "Maps"
-        navigationController?.tabBarItem.image = UIImage(named: "apps")
+        navigationController?.tabBarItem.image = UIImage(named: "maps")
         
         default:
         viewcontroller = nil
