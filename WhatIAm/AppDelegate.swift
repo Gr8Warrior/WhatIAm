@@ -19,30 +19,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var tabControllers: [UIViewController] = []
     
-    for i in 0..<3 {
+    for i in 0..<4 {
     
       var viewcontroller: UIViewController?
       var navigationController: UINavigationController?
       
       switch i {
-        case 0:
-        viewcontroller = ViewController()
         
-        navigationController = UINavigationController(rootViewController: viewcontroller!)
-        navigationController?.tabBarItem.title = "Feed"
-        navigationController?.navigationBar.topItem?.title = "Feeds"
-        navigationController?.tabBarItem.image = UIImage(named: "apps")
+      case 0:
+          viewcontroller = ProfileViewController()
+          navigationController = UINavigationController(rootViewController: viewcontroller!)
+          navigationController?.tabBarItem.title = "Profile"
+          navigationController?.navigationBar.topItem?.title = "profile"
+          navigationController?.tabBarItem.image = UIImage(named: "profile")
 
         
         case 1:
-        viewcontroller = ViewController()
-        navigationController = UINavigationController(rootViewController: viewcontroller!)
-        navigationController?.tabBarItem.title = "Profile"
-        navigationController?.navigationBar.topItem?.title = "profile"
-        navigationController?.tabBarItem.image = UIImage(named: "profile")
-
+          viewcontroller = FeedsViewController()
+          
+          navigationController = UINavigationController(rootViewController: viewcontroller!)
+          navigationController?.tabBarItem.title = "Feed"
+          navigationController?.navigationBar.topItem?.title = "Feeds"
+          navigationController?.tabBarItem.image = UIImage(named: "feed")
         
-        case 2:
+      case 2:
+        viewcontroller = GalleryViewController()
+        navigationController = UINavigationController(rootViewController: viewcontroller!)
+        navigationController?.tabBarItem.title = "Gallery"
+        navigationController?.navigationBar.topItem?.title = "Gallery"
+        navigationController?.tabBarItem.image = UIImage(named: "gallery")
+        
+        
+      case 3:
         viewcontroller = MapsViewController()
         navigationController = UINavigationController(rootViewController: viewcontroller!)
         navigationController?.tabBarItem.title = "Maps"
