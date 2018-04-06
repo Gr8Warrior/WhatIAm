@@ -24,14 +24,14 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>i know</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>yes</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
-  <key>NSLocationWhenInUseUsageDescription</key>
-  <string>Because I want to know your location !</string>
-  <key>NSLocationAlwaysUsageDescription</key>
-  <string>Because I always want to know where you are !</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
