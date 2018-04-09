@@ -8,21 +8,27 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
+class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, GetGoogleImageParserDelegate {
   
-  
-  func updateSearchResults(for searchController: UISearchController) {
-    
+  func didReceiveGoogleImages(_ images: [GoogleImage]) {
+    print("number of images \(images.count)")
+    googleImages = images
+    self.collectionView?.reloadData()
   }
   
-  
   var collectionView : UICollectionView?
-  var searches = [FlickrSearchResults]()
+  var parser: GetGoogleImageParser?
+  var googleImages: [GoogleImage] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.cyan
     edgesForExtendedLayout = UIRectEdge()
+    
+    parser = GetGoogleImageParser()
+    parser?.delegate = self
+    parser!.getGoogleImages(string: "india")
+    
     setUpSearchBar()
     setUpCollectionView()
   }
@@ -43,7 +49,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func setUpSearchBar() {
     let searchController = UISearchController(searchResultsController: nil)
-    searchController.searchResultsUpdater = self
     searchController.searchBar.delegate = self
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
@@ -51,7 +56,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   @available(iOS 6.0, *)
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 108
+    return googleImages.count
   }
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
