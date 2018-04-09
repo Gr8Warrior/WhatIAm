@@ -12,6 +12,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func didReceiveGoogleImages(_ images: [GoogleImage]) {
     print("number of images \(images.count)")
+    
     googleImages = images
     self.collectionView?.reloadData()
   }
@@ -36,7 +37,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   func setUpCollectionView() {
     
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     layout.itemSize = CGSize(width: 120, height: 120)
     
     collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -53,8 +54,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = false
   }
-
-  @available(iOS 6.0, *)
+  
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return googleImages.count
   }
@@ -63,13 +63,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     return 1
   }
   
-  // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-  @available(iOS 6.0, *)
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
-    
-    myCell.backgroundColor = UIColor.blue
+
+    myCell.contentView.addSubview(UIView(frame: CGRect.zero))
+    let imageView : UIImageView = UIImageView(image: googleImages[indexPath.row].thumbnail)
+    imageView.contentMode = UIViewContentMode.scaleAspectFill
+    imageView.clipsToBounds = true
+    myCell.contentView.addSubview(imageView)
     return myCell
     
   }
@@ -80,6 +82,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     print("shailu \(searchText)")
+    parser?.getGoogleImages(string: searchText)
     
   }
   
