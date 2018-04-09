@@ -21,6 +21,7 @@ class GoogleImage: NSObject {
     title = dictionary["title"]! as? String
     link = URL(string: (dictionary["link"]! as? String)!)
     thumbnailLink = URL(string: (dictionary["image"] as! [String:Any])["thumbnailLink"]! as! String)
+    
   }
   
 }

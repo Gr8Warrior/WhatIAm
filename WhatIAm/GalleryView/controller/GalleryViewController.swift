@@ -68,6 +68,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+    
     myCell.backgroundColor = UIColor.blue
     return myCell
     

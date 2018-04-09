@@ -8,9 +8,7 @@
 
 import UIKit
 
-
-  
-  @objc protocol GetGoogleImageParserDelegate: NSObjectProtocol{
+@objc protocol GetGoogleImageParserDelegate: NSObjectProtocol{
     func didReceiveGoogleImages(_ images: [GoogleImage])
     @objc optional func didReceiveError()
   }
@@ -88,8 +86,16 @@ class GetGoogleImageParser: NSObject, URLSessionDelegate, URLSessionDownloadDele
           var googleImageData: [GoogleImage] = []
           
           for i in 0..<data.count {
-            let userType = GoogleImage(dictionary: data[i])
-            googleImageData.append(userType)
+            let googleImage = GoogleImage(dictionary: data[i])
+            guard let url = googleImage.thumbnailLink,
+              let imageData = try? Data(contentsOf: url as URL) else {
+                break
+            }
+            
+            if let image = UIImage(data: imageData) {
+              googleImage.thumbnail = image
+            }
+            googleImageData.append(googleImage)
           }
           DispatchQueue.main.async {
             if self.delegate != nil {
