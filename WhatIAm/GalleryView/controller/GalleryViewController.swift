@@ -8,29 +8,73 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      self.view.backgroundColor = UIColor.cyan
-      edgesForExtendedLayout = UIRectEdge()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
+  
+  
+  func updateSearchResults(for searchController: UISearchController) {
     
+  }
+  
+  
+  var collectionView : UICollectionView?
+  var searches = [FlickrSearchResults]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.view.backgroundColor = UIColor.cyan
+    edgesForExtendedLayout = UIRectEdge()
+    setUpSearchBar()
+    setUpCollectionView()
+  }
+  
+  func setUpCollectionView() {
+    
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+    layout.itemSize = CGSize(width: 120, height: 120)
+    
+    collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+    collectionView?.dataSource = self
+    collectionView?.delegate = self
+    collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+    collectionView?.backgroundColor = UIColor.green
+    self.view.addSubview(collectionView!)
+  }
+  
+  func setUpSearchBar() {
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.delegate = self
+    navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = false
+  }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  @available(iOS 6.0, *)
+  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 108
+  }
+  
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+  @available(iOS 6.0, *)
+  public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
+    myCell.backgroundColor = UIColor.blue
+    return myCell
+    
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print("index path \(indexPath.row)")
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    print("shailu \(searchText)")
+    
+  }
+  
 }
