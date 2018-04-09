@@ -67,7 +67,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath)
 
-    myCell.contentView.addSubview(UIView(frame: CGRect.zero))
+    myCell.contentView.subviews.forEach { $0.removeFromSuperview() }
+    
     let imageView : UIImageView = UIImageView(image: googleImages[indexPath.row].thumbnail)
     imageView.contentMode = UIViewContentMode.scaleAspectFill
     imageView.clipsToBounds = true
@@ -82,8 +83,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     print("shailu \(searchText)")
-    parser?.getGoogleImages(string: searchText)
+    //parser?.getGoogleImages(string: searchText)
     
+  }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    self.googleImages = []
+    collectionView?.reloadData()
+    parser?.getGoogleImages(string: searchBar.text!)
+    print("end")
   }
   
 }
