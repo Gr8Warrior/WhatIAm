@@ -8,54 +8,70 @@
 
 import UIKit
 
-class FeedsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedsViewController: UIViewController, GetPublicPhotoParserDelegate, GetPublicPhotoInfoParserDelegate, UITableViewDelegate, UITableViewDataSource {
   
-  var tableOfFeeds: UITableView?
+  var parser: GetPhotosParser?
+  var getPhotoInfoParser: GetPhotosInfoParser?
+  var feedTableView: UITableView?
+  var publicPhotos: [PublicPhoto]?
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      self.view.backgroundColor = UIColor.blue
-      edgesForExtendedLayout = UIRectEdge()
-      loadTableView()
-    }
-  
-  func loadTableView() {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setuptableView()
     
-    tableOfFeeds = UITableView(frame: self.view.frame)
-    tableOfFeeds?.delegate = self
-    tableOfFeeds?.dataSource = self
-    self.view.addSubview(tableOfFeeds!)
+    self.view.backgroundColor = UIColor.cyan
+    edgesForExtendedLayout = UIRectEdge()
+    parser = GetPhotosParser()
+    parser?.delegate = self
+    getPhotoInfoParser = GetPhotosInfoParser()
+    getPhotoInfoParser?.delegate = self
+    parser!.getGoogleImages(string: "india")
   }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
+  func setuptableView() {
+    feedTableView = UITableView(frame: self.view.frame)
+    feedTableView?.dataSource = self
+    feedTableView?.delegate = self
+    feedTableView?.rowHeight = 300
+    self.view.addSubview(feedTableView!)
+  }
+  func didReceivePublicPhoto(_ images: [PublicPhoto]) {
+    print("images received : \(images.count)")
+    getPhotoInfoParser?.getGoogleImages(publicPhoto: images)
+  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 2
+    return publicPhotos?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    var feedCell = tableView.dequeueReusableCell(withIdentifier: "feeds")
+    var cell: FeedsTableViewCell?
+    cell = tableView.dequeueReusableCell(withIdentifier: "recell") as? FeedsTableViewCell
     
-    if feedCell == nil {
-      feedCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "feeds")
+    if cell == nil {
+      cell = FeedsTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "recell")
+      cell?.preservesSuperviewLayoutMargins = false
+      cell?.layoutMargins = UIEdgeInsets.zero
+      
     }
-    feedCell?.textLabel?.text = "shailu"
+    cell?.titleLabel?.text = "Title : \(publicPhotos![indexPath.row].title ?? "No Title")"
+    cell?.photoView?.image = publicPhotos![indexPath.row].image
+    cell?.viewLabel?.text = "views : \(publicPhotos![indexPath.row].views ?? "No Views")"
+    cell?.takenLabel?.text = "Dated : \(publicPhotos![indexPath.row].taken ?? "Not available")"
     
-    return feedCell!
+    return cell!
   }
   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  func didReceivePublicPhotoInfo(_ images: [PublicPhoto]) {
+    publicPhotos = images
+    DispatchQueue.main.async {
+      
+      self.feedTableView?.reloadData()
     }
-    */
-
+    print(images)
+    
+  }
+  
+  
 }
+

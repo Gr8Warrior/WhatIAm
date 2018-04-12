@@ -9,22 +9,18 @@
 import UIKit
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, GetGoogleImageParserDelegate {
-  
-  func didReceiveGoogleImages(_ images: [GoogleImage]) {
-    print("number of images \(images.count)")
-    
-    googleImages = images
-    self.collectionView?.reloadData()
-  }
-  
+
   var collectionView : UICollectionView?
   var parser: GetGoogleImageParser?
   var googleImages: [GoogleImage] = []
+  var modalView: UIView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.cyan
     edgesForExtendedLayout = UIRectEdge()
+    
+    modalView = UIView(frame: self.view.frame)
     
     parser = GetGoogleImageParser()
     parser?.delegate = self
@@ -79,6 +75,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print("index path \(indexPath.row)")
+    guard let url = googleImages[indexPath.row].link,
+      let imageData = try? Data(contentsOf: url as URL) else {
+        return
+    }
+    if let image = UIImage(data: imageData) {
+      var imageView = UIImageView(image: image)
+      self.modalView?.addSubview(imageView)
+      self.modalView?.bringSubview(toFront: self.view)
+    }
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -92,6 +97,14 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     collectionView?.reloadData()
     parser?.getGoogleImages(string: searchBar.text!)
     print("end")
+  }
+  
+  
+  func didReceiveGoogleImages(_ images: [GoogleImage]) {
+    print("number of images \(images.count)")
+    
+    googleImages = images
+    self.collectionView?.reloadData()
   }
   
 }
