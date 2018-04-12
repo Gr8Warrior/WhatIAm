@@ -39,7 +39,7 @@ class GetPhotosParser: NSObject, URLSessionDelegate, URLSessionDownloadDelegate 
      */
     
     
-    let url = URL(string: "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=7300189187d24544a556922409d82f6e&user_id=13562660@N07&page=7&per_page=5&format=json&nojsoncallback=1")
+    let url = URL(string: "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=7300189187d24544a556922409d82f6e&user_id=13562660@N07&page=27&per_page=5&format=json&nojsoncallback=1")
     
     /*
      For post service you need to use request object
