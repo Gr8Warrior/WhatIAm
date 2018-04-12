@@ -39,8 +39,8 @@ class GetGoogleImageParser: NSObject, URLSessionDelegate, URLSessionDownloadDele
        4. Get the response
        5. Get the data
        */
-      
-      let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=API_KEY&cx=SEARCH_ENGINE_KEY&q=\(string)&searchType=image")
+//      https://www.googleapis.com/customsearch/v1?key=AIzaSyDYmVAMmX7ug7m9QKOth4yOBkvaOtFnk0Q&cx=010851423802901050718:wqqsvikv4qo&q=lectures&searchType=image
+      let url = URL(string: "https://www.googleapis.com/customsearch/v1?key=AIzaSyDYmVAMmX7ug7m9QKOth4yOBkvaOtFnk0Q&cx=010851423802901050718:wqqsvikv4qo&q=\(string)&searchType=image")
       
       /*
        For post service you need to use request object

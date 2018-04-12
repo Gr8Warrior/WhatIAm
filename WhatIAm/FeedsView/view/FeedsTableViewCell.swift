@@ -18,16 +18,16 @@ class FeedsTableViewCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-    titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.contentView.frame.size.width, height: 40))
+    titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
     titleLabel?.textAlignment = NSTextAlignment.center
     self.addSubview(titleLabel!)
-    photoView = UIImageView(frame: CGRect(x: 0, y: 40, width: self.contentView.frame.size.width, height: 210))
+    photoView = UIImageView(frame: CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 210))
     photoView?.contentMode = .scaleAspectFill
     photoView?.clipsToBounds = true
     self.addSubview(photoView!)
-    viewLabel = UILabel(frame: CGRect(x: 0, y: 250, width: self.contentView.frame.size.width * 0.5, height: 50))
+    viewLabel = UILabel(frame: CGRect(x: 0, y: 250, width: UIScreen.main.bounds.width * 0.5, height: 50))
     self.addSubview(viewLabel!)
-    takenLabel = UILabel(frame: CGRect(x: self.contentView.frame.size.width - self.contentView.frame.size.width * 0.5, y: 250, width: self.contentView.frame.size.width * 0.5, height: 50))
+    takenLabel = UILabel(frame: CGRect(x: UIScreen.main.bounds.width - UIScreen.main.bounds.width * 0.5, y: 250, width: UIScreen.main.bounds.width * 0.5, height: 50))
     takenLabel?.adjustsFontSizeToFitWidth = true
     self.addSubview(takenLabel!)
   }
